@@ -7,20 +7,12 @@ import Experience from './Experience';
 class Form extends React.Component {
   constructor(props) {
     super(props);
-
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    // TODO get by name
-    // https://stackoverflow.com/questions/23427384/get-form-data-in-reactjs
   }
 
   render() {
     const { fieldsets } = this.props;
     return (
-      <form onSubmit={this.onSubmit} className="c-form">
+      <form className="c-form" onSubmit={this.props.onSubmit}>
         <GeneralInformation
           inputFields={fieldsets.general}
           onInputChange={this.props.onInputChange}
