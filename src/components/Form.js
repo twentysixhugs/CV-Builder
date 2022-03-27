@@ -8,6 +8,7 @@ import {
   ExperienceFieldsetData,
 } from '../modules/fieldsetCreator';
 import Education from './Education';
+import Experience from './Experience';
 
 class Form extends React.Component {
   constructor(props) {
@@ -93,7 +94,14 @@ class Form extends React.Component {
           onInputChange={this.onInputChange}
           onNewInputCreation={this.onNewInputCreation}
         />
-        <button type="submit">BUILD RRRRESUMEEEEEEEEEEE!!!!!!!</button>
+        <Experience
+          inputFields={this.state.experience}
+          onInputChange={this.onInputChange}
+          onNewInputCreation={this.onNewInputCreation}
+        />
+        <button type="submit">
+          BUILD RRRRESUMEEEEEEEEEEE!!!!!!! (preview, can edit later)
+        </button>
       </form>
     );
   }
