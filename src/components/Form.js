@@ -1,4 +1,3 @@
-import { toHaveFocus } from '@testing-library/jest-dom/dist/matchers';
 import React from 'react';
 import GeneralInformation from './GeneralInformation';
 import Skills from './Skills';
@@ -82,7 +81,11 @@ class Form extends React.Component {
         <GeneralInformation
           inputFields={this.state.general}
           onInputChange={this.onInputChange}
-          legend="General information"
+        />
+        <Skills
+          inputFields={this.state.skills}
+          onInputChange={this.onInputChange}
+          onNewInputCreation={this.onNewInputCreation}
         />
         <button type="submit">BUILD RRRRESUMEEEEEEEEEEE!!!!!!!</button>
       </form>
