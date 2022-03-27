@@ -9,7 +9,9 @@ class Field extends React.Component {
         </label>
         <input
           className="c-field__input"
+          type={this.props.type}
           id={this.props.id}
+          name={this.props.name}
           value={this.props.value}
           onChange={this.props.onChange}
         ></input>
