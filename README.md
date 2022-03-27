@@ -1,1 +1,0 @@
-I build this as part of TheOdinProject free open-source curriculum when I started learning React.
