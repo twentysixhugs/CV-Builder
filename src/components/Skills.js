@@ -6,7 +6,7 @@ class Skills extends React.Component {
     const { inputFields } = this.props;
 
     return (
-      <div className="c-fieldset c-fieldset--skills">
+      <fieldset className="c-fieldset c-fieldset--skills">
         <legend className="c-fieldset__legend">Skills</legend>
         {inputFields.map((field, index) => {
           return (
@@ -30,7 +30,7 @@ class Skills extends React.Component {
         >
           Add...
         </button>
-      </div>
+      </fieldset>
     );
   }
 }

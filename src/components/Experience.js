@@ -6,7 +6,7 @@ class Experience extends React.Component {
     const { inputFields } = this.props;
 
     return (
-      <div className="c-fieldset c-fieldset--skills">
+      <fieldset className="c-fieldset c-fieldset--skills">
         <legend className="c-fieldset__legend">
           Practical experience
         </legend>
@@ -72,7 +72,7 @@ class Experience extends React.Component {
         >
           Add...
         </button>
-      </div>
+      </fieldset>
     );
   }
 }
