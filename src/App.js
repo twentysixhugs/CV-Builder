@@ -1,6 +1,7 @@
 import './styles/App.css';
-import Form from './components/Form';
 import React from 'react';
+import Form from './components/Form';
+import Result from './components/Result';
 
 import {
   SkillsFieldsetData,
@@ -22,10 +23,12 @@ class App extends React.Component {
       skills: [],
       education: [],
       experience: [],
+      isDisplayingForm: true,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewInputCreation = this.handleNewInputCreation.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(index, e, updatedArrayName) {
@@ -38,7 +41,6 @@ class App extends React.Component {
     /* Replace the original array in state with the updated one */
     this.setState({ [updatedArrayName]: deepCopy });
   }
-
   handleNewInputCreation(updatedArrayName, e) {
     /* Create a deep copy of inputField key-value pairs */
     const deepCopy = this.#getDeepCopy(updatedArrayName);
@@ -68,14 +70,29 @@ class App extends React.Component {
     return deepCopy;
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({ isDisplayingForm: false }, console.log(this.state));
+  }
+
   render() {
     return (
       <div className="App">
-        <Form
-          fieldsets={this.state}
-          onNewInputCreation={this.handleNewInputCreation}
-          onInputChange={this.handleInputChange}
-        />
+        {this.state.isDisplayingForm ? (
+          <Form
+            fieldsets={{
+              general: this.state.general,
+              skills: this.state.skills,
+              education: this.state.education,
+              experience: this.state.experience,
+            }}
+            onNewInputCreation={this.handleNewInputCreation}
+            onInputChange={this.handleInputChange}
+            onSubmit={this.handleSubmit}
+          />
+        ) : (
+          <Result />
+        )}
       </div>
     );
   }
