@@ -27,6 +27,7 @@ class Skills extends React.Component {
         <button
           onClick={(e) => this.props.onNewInputCreation('skills', e)}
           className="c-fieldset__button"
+          type="button"
         >
           Add...
         </button>

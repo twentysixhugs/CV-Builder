@@ -69,6 +69,7 @@ class Experience extends React.Component {
         <button
           onClick={(e) => this.props.onNewInputCreation('experience', e)}
           className="c-fieldset__button"
+          type="button"
         >
           Add...
         </button>

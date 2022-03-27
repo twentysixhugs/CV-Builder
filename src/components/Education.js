@@ -57,6 +57,7 @@ class Education extends React.Component {
         <button
           onClick={(e) => this.props.onNewInputCreation('education', e)}
           className="c-fieldset__button"
+          type="button"
         >
           Add...
         </button>
