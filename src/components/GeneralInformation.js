@@ -17,7 +17,9 @@ class GeneralInformation extends React.Component {
                 id="first-name"
                 name="firstname"
                 value={field.firstname}
-                onChange={this.props.onInputChange}
+                onChange={(e) =>
+                  this.props.onInputChange(index, e, 'general')
+                }
               />
               <Field
                 labelText="Last Name"
@@ -25,7 +27,9 @@ class GeneralInformation extends React.Component {
                 id="last-name"
                 name="lastname"
                 value={field.lastname}
-                onChange={this.props.onInputChange}
+                onChange={(e) =>
+                  this.props.onInputChange(index, e, 'general')
+                }
               />
               <Field
                 labelText="Email"
@@ -33,7 +37,9 @@ class GeneralInformation extends React.Component {
                 id="email"
                 name="email"
                 value={field.email}
-                onChange={this.props.onInputChange}
+                onChange={(e) =>
+                  this.props.onInputChange(index, e, 'general')
+                }
               />
               <Field
                 labelText="Phone"
@@ -41,7 +47,9 @@ class GeneralInformation extends React.Component {
                 id="phone"
                 name="phone"
                 value={field.phone}
-                onChange={this.props.onInputChange}
+                onChange={(e) =>
+                  this.props.onInputChange(index, e, 'general')
+                }
               />
             </div>
           );
