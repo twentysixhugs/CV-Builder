@@ -77,10 +77,9 @@ class App extends React.Component {
     let deepStateCopy = {};
     let emptyFieldsets = [];
 
-    for (const formSectionName in this.state) {
-      if (formSectionName !== 'isDisplayingForm') {
-        deepStateCopy[formSectionName] =
-          this.#getDeepCopy(formSectionName);
+    for (const prop in this.state) {
+      if (Array.isArray(this.state[prop])) {
+        deepStateCopy[prop] = this.#getDeepCopy(prop);
       }
     }
 
