@@ -20,6 +20,7 @@ class DynamicForm extends React.Component {
                   onChange={(e) =>
                     this.props.onInputChange(index, e, 'general')
                   }
+                  required={true}
                 />
                 <Field
                   labelText="Last Name: "
@@ -30,6 +31,7 @@ class DynamicForm extends React.Component {
                   onChange={(e) =>
                     this.props.onInputChange(index, e, 'general')
                   }
+                  required={true}
                 />
                 <Field
                   labelText="Email: "
@@ -40,6 +42,7 @@ class DynamicForm extends React.Component {
                   onChange={(e) =>
                     this.props.onInputChange(index, e, 'general')
                   }
+                  required={true}
                 />
                 <Field
                   labelText="Phone: "
@@ -50,6 +53,7 @@ class DynamicForm extends React.Component {
                   onChange={(e) =>
                     this.props.onInputChange(index, e, 'general')
                   }
+                  required={true}
                 />
               </div>
             );
