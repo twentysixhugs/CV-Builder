@@ -1,0 +1,33 @@
+.App {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+
+  background: #e7e7e7;
+}
+
+.App__header {
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+
+  /* color: rgb(255, 108, 71); */
+  color: rgb(236, 236, 236);
+
+  font-size: 1.6rem;
+  letter-spacing: 0.003em;
+  font-weight: 300;
+
+  background: #131316;
+}
+
+.App__footer {
+  height: 30px;
+  margin-top: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
