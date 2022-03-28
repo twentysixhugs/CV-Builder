@@ -210,9 +210,7 @@ class DynamicForm extends React.Component {
           </button>
         </FormSection>
 
-        <button type="submit" disabled={this.props.isSubmitDisabled}>
-          Preview
-        </button>
+        <button type="submit">Preview</button>
       </form>
     );
   }
