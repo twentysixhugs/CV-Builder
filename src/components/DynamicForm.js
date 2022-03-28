@@ -6,7 +6,11 @@ class DynamicForm extends React.Component {
   render() {
     const { sections } = this.props;
     return (
-      <form className="c-form" onSubmit={this.props.onSubmit}>
+      <form
+        onKeyDown={(e) => e.key != 'Enter'}
+        className="c-form"
+        onSubmit={this.props.onSubmit}
+      >
         <FormSection legend="General information">
           {sections.general.map((field, index) => {
             return (
@@ -15,8 +19,8 @@ class DynamicForm extends React.Component {
                   labelText="First Name: "
                   type="text"
                   id="first-name"
-                  name="firstname"
-                  value={field.firstname}
+                  name="firstName"
+                  value={field.firstName}
                   onChange={(e) =>
                     this.props.onInputChange(index, e, 'general')
                   }
@@ -26,8 +30,8 @@ class DynamicForm extends React.Component {
                   labelText="Last Name: "
                   type="text"
                   id="last-name"
-                  name="lastname"
-                  value={field.lastname}
+                  name="lastName"
+                  value={field.lastName}
                   onChange={(e) =>
                     this.props.onInputChange(index, e, 'general')
                   }
@@ -73,6 +77,14 @@ class DynamicForm extends React.Component {
                     this.props.onInputChange(index, e, 'skills')
                   }
                 />
+                <button
+                  type="button"
+                  onClick={(e) =>
+                    this.props.onRemoveInput(index, 'skills', e)
+                  }
+                >
+                  Remove
+                </button>
               </div>
             );
           })}
@@ -132,6 +144,14 @@ class DynamicForm extends React.Component {
                   }
                   isDisplayingForm={this.props.isDisplayingForm}
                 />
+                <button
+                  type="button"
+                  onClick={(e) =>
+                    this.props.onRemoveInput(index, 'education', e)
+                  }
+                >
+                  Remove
+                </button>
               </div>
             );
           })}
@@ -198,6 +218,14 @@ class DynamicForm extends React.Component {
                     this.props.onInputChange(index, e, 'experience')
                   }
                 />
+                <button
+                  type="button"
+                  onClick={(e) =>
+                    this.props.onRemoveInput(index, 'experience', e)
+                  }
+                >
+                  Remove
+                </button>
               </div>
             );
           })}
