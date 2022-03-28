@@ -70,9 +70,61 @@ class App extends React.Component {
     return deepCopy;
   }
 
+  #getNotEmptyFieldsets() {
+    /* Returns an array without empty fieldsets.
+    A user may create a fieldset but leave it blank completely.
+    These fieldsets will not be displayed because they are empty */
+    let deepStateCopy = {};
+    let emptyFieldsets = [];
+
+    for (const formSectionName in this.state) {
+      if (formSectionName !== 'isDisplayingForm') {
+        deepStateCopy[formSectionName] =
+          this.#getDeepCopy(formSectionName);
+      }
+    }
+
+    for (const formSectionName in deepStateCopy) {
+      deepStateCopy[formSectionName].forEach((fieldset) => {
+        let areAllFieldsEmpty = true;
+
+        for (const fieldName in fieldset) {
+          if (fieldset[fieldName]) {
+            areAllFieldsEmpty = false;
+          }
+        }
+
+        if (areAllFieldsEmpty) {
+          emptyFieldsets.push({
+            section: formSectionName,
+            fieldset,
+          });
+        }
+      });
+    }
+
+    for (const emptyFieldset of emptyFieldsets) {
+      const sectionWithEmptyFieldset =
+        deepStateCopy[emptyFieldset.section];
+
+      const emptyFieldsetIndex = sectionWithEmptyFieldset.indexOf(
+        emptyFieldset.fieldset,
+      );
+
+      sectionWithEmptyFieldset.splice(emptyFieldsetIndex, 1);
+    }
+
+    return deepStateCopy;
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ isDisplayingForm: false }, console.log(this.state));
+    const notEmptyFieldsets = this.#getNotEmptyFieldsets();
+
+    this.setState(
+      { ...notEmptyFieldsets, isDisplayingForm: false },
+      console.log(this.state),
+    );
   }
 
   render() {
@@ -80,7 +132,7 @@ class App extends React.Component {
       <div className="App">
         {this.state.isDisplayingForm ? (
           <DynamicForm
-            fieldsets={{
+            sections={{
               general: this.state.general,
               skills: this.state.skills,
               education: this.state.education,
@@ -89,17 +141,15 @@ class App extends React.Component {
             onNewInputCreation={this.handleNewInputCreation}
             onInputChange={this.handleInputChange}
             onSubmit={this.handleSubmit}
-            isDisplayingForm={this.state.isDisplayingForm}
           />
         ) : (
           <Result
-            fieldsets={{
+            sections={{
               general: this.state.general,
               skills: this.state.skills,
               education: this.state.education,
               experience: this.state.experience,
             }}
-            isDisplayingForm={this.state.isDisplayingForm}
           />
         )}
       </div>
