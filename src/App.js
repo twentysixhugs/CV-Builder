@@ -24,11 +24,13 @@ class App extends React.Component {
       education: [],
       experience: [],
       isDisplayingForm: true,
+      isSubmitDisabled: true,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewInputCreation = this.handleNewInputCreation.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleResultEdit = this.handleResultEdit.bind(this);
   }
 
   handleInputChange(index, e, updatedArrayName) {
@@ -41,6 +43,7 @@ class App extends React.Component {
     /* Replace the original array in state with the updated one */
     this.setState({ [updatedArrayName]: deepCopy });
   }
+
   handleNewInputCreation(updatedArrayName, e) {
     /* Create a deep copy of inputField key-value pairs */
     const deepCopy = this.#getDeepCopy(updatedArrayName);
@@ -120,10 +123,11 @@ class App extends React.Component {
     e.preventDefault();
     const notEmptyFieldsets = this.#getNotEmptyFieldsets();
 
-    this.setState(
-      { ...notEmptyFieldsets, isDisplayingForm: false },
-      console.log(this.state),
-    );
+    this.setState({ ...notEmptyFieldsets, isDisplayingForm: false });
+  }
+
+  handleResultEdit(e) {
+    this.setState({ isDisplayingForm: true });
   }
 
   render() {
@@ -149,6 +153,7 @@ class App extends React.Component {
               education: this.state.education,
               experience: this.state.experience,
             }}
+            onResultEdit={this.handleResultEdit}
           />
         )}
       </div>
