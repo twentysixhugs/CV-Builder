@@ -19,7 +19,7 @@ class App extends React.Component {
     /* An array is passed to form as fieldsets */
 
     this.state = {
-      general: [{ firstname: '', lastname: '', email: '', phone: '' }],
+      general: [{ firstName: '', lastName: '', email: '', phone: '' }],
       skills: [],
       education: [],
       experience: [],
@@ -29,6 +29,7 @@ class App extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewInputCreation = this.handleNewInputCreation.bind(this);
+    this.handleRemoveInput = this.handleRemoveInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleResultEdit = this.handleResultEdit.bind(this);
   }
@@ -62,6 +63,17 @@ class App extends React.Component {
     }
 
     deepCopy.push(newInputFields);
+
+    /* Replace the original array in state with the updated one */
+    this.setState({ [updatedArrayName]: deepCopy });
+  }
+
+  handleRemoveInput(index, updatedArrayName, e) {
+    /* Create a deep copy of inputField key-value pairs */
+    const deepCopy = this.#getDeepCopy(updatedArrayName);
+
+    /* Remove the necessary key-value pair */
+    deepCopy.splice(index, 1);
 
     /* Replace the original array in state with the updated one */
     this.setState({ [updatedArrayName]: deepCopy });
@@ -142,6 +154,7 @@ class App extends React.Component {
               experience: this.state.experience,
             }}
             onNewInputCreation={this.handleNewInputCreation}
+            onRemoveInput={this.handleRemoveInput}
             onInputChange={this.handleInputChange}
             onSubmit={this.handleSubmit}
           />
