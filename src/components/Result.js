@@ -6,10 +6,11 @@ class Result extends React.Component {
   render() {
     const { sections } = this.props;
     const isGeneralInfoProvided =
-      sections.general[0].firstName ||
-      sections.general[0].lastName ||
-      sections.general[0].email ||
-      sections.general[0].phone;
+      sections.general[0] &&
+      (sections.general[0].firstName ||
+        sections.general[0].lastName ||
+        sections.general[0].email ||
+        sections.general[0].phone);
 
     const isSkillsInfoProvided = sections.skills.length > 0;
     const isEducationInfoProvided = sections.education.length > 0;
