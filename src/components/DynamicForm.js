@@ -4,11 +4,11 @@ import Field from './Field';
 
 class DynamicForm extends React.Component {
   render() {
-    const { fieldsets } = this.props;
+    const { sections } = this.props;
     return (
       <form className="c-form" onSubmit={this.props.onSubmit}>
         <FormSection legend="General information">
-          {fieldsets.general.map((field, index) => {
+          {sections.general.map((field, index) => {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
@@ -56,7 +56,7 @@ class DynamicForm extends React.Component {
           })}
         </FormSection>
         <FormSection legend="Skills">
-          {fieldsets.skills.map((field, index) => {
+          {sections.skills.map((field, index) => {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
@@ -81,7 +81,7 @@ class DynamicForm extends React.Component {
           </button>
         </FormSection>
         <FormSection legend="Education">
-          {fieldsets.education.map((field, index) => {
+          {sections.education.map((field, index) => {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
@@ -140,7 +140,7 @@ class DynamicForm extends React.Component {
           </button>
         </FormSection>
         <FormSection legend="Practical experience">
-          {fieldsets.experience.map((field, index) => {
+          {sections.experience.map((field, index) => {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
