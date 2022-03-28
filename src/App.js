@@ -145,6 +145,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header className="App__header">
+          <h1 className="App__heading">CV Builder</h1>
+        </header>
         {this.state.isDisplayingForm ? (
           <DynamicForm
             sections={{
