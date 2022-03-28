@@ -5,32 +5,44 @@ import ResultItem from './ResultItem';
 class Result extends React.Component {
   render() {
     const { sections } = this.props;
+    const isGeneralInfoProvided =
+      sections.general[0].firstName ||
+      sections.general[0].lastName ||
+      sections.general[0].email ||
+      sections.general[0].phone;
+
+    const isSkillsInfoProvided = sections.skills.length > 0;
+    const isEducationInfoProvided = sections.education.length > 0;
+    const isExperienceInfoProvided = sections.experience.length > 0;
+
     return (
       <div className="c-result" onSubmit={this.props.onSubmit}>
         {/* Everything except General information is 
         rendered conditionally if section's data is provided */}
 
-        <ResultSection heading="General information">
-          {sections.general.map((resultItem, index) => {
-            return (
-              <div key={index} className="result-items-wrapper">
-                <ResultItem
-                  itemLabel="Full name:"
-                  itemValue={`${resultItem.firstName} ${resultItem.lastName}`}
-                />
-                <ResultItem
-                  itemLabel="Email:"
-                  itemValue={resultItem.email}
-                />
-                <ResultItem
-                  itemLabel="Phone:"
-                  itemValue={resultItem.phone}
-                />
-              </div>
-            );
-          })}
-        </ResultSection>
-        {sections.skills.length > 0 && (
+        {isGeneralInfoProvided && (
+          <ResultSection heading="General information">
+            {sections.general.map((resultItem, index) => {
+              return (
+                <div key={index} className="result-items-wrapper">
+                  <ResultItem
+                    itemLabel="Full name:"
+                    itemValue={`${resultItem.firstName} ${resultItem.lastName}`}
+                  />
+                  <ResultItem
+                    itemLabel="Email:"
+                    itemValue={resultItem.email}
+                  />
+                  <ResultItem
+                    itemLabel="Phone:"
+                    itemValue={resultItem.phone}
+                  />
+                </div>
+              );
+            })}
+          </ResultSection>
+        )}
+        {isSkillsInfoProvided && (
           <ResultSection heading="Skills">
             {sections.skills.map((resultItem, index) => {
               return (
@@ -47,7 +59,7 @@ class Result extends React.Component {
             })}
           </ResultSection>
         )}
-        {sections.education.length > 0 && (
+        {isEducationInfoProvided && (
           <ResultSection heading="Education">
             {sections.education.map((resultItem, index) => {
               return (
@@ -77,7 +89,7 @@ class Result extends React.Component {
             })}
           </ResultSection>
         )}
-        {sections.experience.length > 0 && (
+        {isExperienceInfoProvided && (
           <ResultSection heading="Experience">
             {sections.experience.map((resultItem, index) => {
               return (
