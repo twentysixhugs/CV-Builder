@@ -12,7 +12,7 @@ class DynamicForm extends React.Component {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
-                  labelText="First Name"
+                  labelText="First Name: "
                   type="text"
                   id="first-name"
                   name="firstname"
@@ -22,7 +22,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Last Name"
+                  labelText="Last Name: "
                   type="text"
                   id="last-name"
                   name="lastname"
@@ -32,7 +32,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Email"
+                  labelText="Email: "
                   type="email"
                   id="email"
                   name="email"
@@ -42,7 +42,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Phone"
+                  labelText="Phone: "
                   type="text"
                   id="phone"
                   name="phone"
