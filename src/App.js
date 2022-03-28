@@ -173,8 +173,10 @@ class App extends React.Component {
           />
         )}
         <footer className="App__footer">
-          Made with love by{' '}
-          <a href="https://github.com/twentysixhugs">Iaan Lamanosau :3</a>
+          Made with love by
+          <a href="https://github.com/twentysixhugs">
+            &nbsp;Iaan Lamanosau :3
+          </a>
         </footer>
       </div>
     );
