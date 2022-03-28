@@ -1,6 +1,6 @@
 import './styles/App.css';
 import React from 'react';
-import Form from './components/Form';
+import DynamicForm from './components/DynamicForm';
 import Result from './components/Result';
 
 import {
@@ -16,7 +16,7 @@ class App extends React.Component {
     /* Each array represents a key-value pair stored in an object */
     /* On input change, the objects are updated (with deep cloning and setState) */
     /* On creating a new input field, it is added here. So, the form is dynamic */
-    /* An array is passed to form fieldsets as inputFields */
+    /* An array is passed to form as fieldsets */
 
     this.state = {
       general: [{ firstname: '', lastname: '', email: '', phone: '' }],
@@ -79,7 +79,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.state.isDisplayingForm ? (
-          <Form
+          <DynamicForm
             fieldsets={{
               general: this.state.general,
               skills: this.state.skills,
@@ -89,9 +89,18 @@ class App extends React.Component {
             onNewInputCreation={this.handleNewInputCreation}
             onInputChange={this.handleInputChange}
             onSubmit={this.handleSubmit}
+            isDisplayingForm={this.state.isDisplayingForm}
           />
         ) : (
-          <Result />
+          <Result
+            fieldsets={{
+              general: this.state.general,
+              skills: this.state.skills,
+              education: this.state.education,
+              experience: this.state.experience,
+            }}
+            isDisplayingForm={this.state.isDisplayingForm}
+          />
         )}
       </div>
     );

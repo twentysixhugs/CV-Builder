@@ -2,7 +2,7 @@ import React from 'react';
 import FormSection from './FormSection';
 import Field from './Field';
 
-class Form extends React.Component {
+class DynamicForm extends React.Component {
   render() {
     const { fieldsets } = this.props;
     return (
@@ -213,4 +213,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default DynamicForm;
