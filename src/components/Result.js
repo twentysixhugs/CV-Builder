@@ -15,12 +15,8 @@ class Result extends React.Component {
             return (
               <div key={index} className="result-items-wrapper">
                 <ResultItem
-                  itemLabel="First name:"
-                  itemValue={resultItem.firstname}
-                />
-                <ResultItem
-                  itemLabel="Last name:"
-                  itemValue={resultItem.lastname}
+                  itemLabel="Full name:"
+                  itemValue={`${resultItem.firstName} ${resultItem.lastName}`}
                 />
                 <ResultItem
                   itemLabel="Email:"
