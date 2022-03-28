@@ -11,7 +11,7 @@ class DynamicForm extends React.Component {
         className="c-form"
         onSubmit={this.props.onSubmit}
       >
-        <FormSection legend="General information">
+        <FormSection legend="Personal information">
           {sections.general.map((field, index) => {
             return (
               <div key={index} className="fields-wrapper">
