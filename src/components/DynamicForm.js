@@ -81,7 +81,7 @@ class DynamicForm extends React.Component {
             className="c-fieldset__button"
             type="button"
           >
-            Add...
+            Add more
           </button>
         </FormSection>
         <FormSection legend="Education">
@@ -140,7 +140,7 @@ class DynamicForm extends React.Component {
             className="c-fieldset__button"
             type="button"
           >
-            Add...
+            Add more
           </button>
         </FormSection>
         <FormSection legend="Practical experience">
@@ -206,12 +206,12 @@ class DynamicForm extends React.Component {
             className="c-fieldset__button"
             type="button"
           >
-            Add...
+            Add more
           </button>
         </FormSection>
 
         <button type="submit" disabled={this.props.isSubmitDisabled}>
-          BUILD RRRRESUMEEEEEEEEEEE!!!!!!! (preview, can edit later)
+          Preview
         </button>
       </form>
     );
