@@ -169,13 +169,14 @@ class DynamicForm extends React.Component {
                 />
                 <Field
                   labelText="Main tasks: "
-                  type="textarea"
+                  type="text"
                   id={`mainTasks-${index}`}
                   name={`mainTasks`}
                   value={field.mainTasks}
                   onChange={(e) =>
                     this.props.onInputChange(index, e, 'experience')
                   }
+                  textArea={true}
                 />
                 <Field
                   labelText="From: "
@@ -209,7 +210,7 @@ class DynamicForm extends React.Component {
           </button>
         </FormSection>
 
-        <button type="submit">
+        <button type="submit" disabled={this.props.isSubmitDisabled}>
           BUILD RRRRESUMEEEEEEEEEEE!!!!!!! (preview, can edit later)
         </button>
       </form>
