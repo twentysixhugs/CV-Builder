@@ -118,6 +118,8 @@ class App extends React.Component {
     }
 
     for (const emptyFieldset of emptyFieldsets) {
+      if (emptyFieldset.section === 'general') continue;
+
       const sectionWithEmptyFieldset =
         deepStateCopy[emptyFieldset.section];
 
