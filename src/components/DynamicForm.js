@@ -7,11 +7,7 @@ class DynamicForm extends React.Component {
   render() {
     const { sections } = this.props;
     return (
-      <form
-        onKeyDown={(e) => e.key != 'Enter'}
-        className="c-form"
-        onSubmit={this.props.onSubmit}
-      >
+      <form className="c-form" onSubmit={this.props.onSubmit}>
         <FormSection legend="Personal information">
           {sections.general.map((field, index) => {
             return (
