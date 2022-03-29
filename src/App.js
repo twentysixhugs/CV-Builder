@@ -176,8 +176,15 @@ class App extends React.Component {
         )}
         <footer className="App__footer">
           Made with love by
-          <a href="https://github.com/twentysixhugs">
+          <a target="_blank" href="https://github.com/twentysixhugs">
             &nbsp;Iaan Lamanosau :3
+          </a>
+          <a
+            className="footer__code-link"
+            target="_blank"
+            href="https://github.com/twentysixhugs/CV-Builder"
+          >
+            View code
           </a>
         </footer>
       </div>
