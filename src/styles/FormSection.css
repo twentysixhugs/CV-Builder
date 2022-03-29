@@ -22,7 +22,7 @@
   background: rgb(42, 46, 53);
 }
 
-.c-fieldset__button:hover {
+.c-fieldset__button:not(.c-fieldset__button--remove):hover {
   background: rgb(48, 52, 59);
 }
 
