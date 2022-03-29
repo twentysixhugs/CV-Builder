@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/ResultSection.css';
 
 class ResultSection extends React.Component {
   render() {

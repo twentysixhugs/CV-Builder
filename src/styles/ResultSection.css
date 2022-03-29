@@ -1,0 +1,11 @@
+.c-result-section {
+  margin-top: 1.25rem;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.c-result-section__heading {
+  margin-bottom: -1.25rem;
+  font-size: 1.7rem;
+}

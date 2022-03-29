@@ -1,0 +1,35 @@
+.c-result {
+  padding: 1rem;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.result-items-wrapper:not(.result-items-wrapper--skills) {
+  margin-top: 2.5rem;
+}
+
+.result-items-wrapper--skills:first-of-type {
+  margin-top: 1rem;
+}
+
+.result-items-wrapper--skills li {
+  margin-top: 0.5rem;
+}
+
+.c-result__edit-btn {
+  width: max-content;
+  padding: 1rem;
+  margin-top: 1.5rem;
+
+  color: rgb(212, 212, 212);
+  line-height: 14px;
+  font-size: 1.1rem;
+  background: rgb(42, 46, 53);
+
+  border-radius: 4px;
+}
+
+.c-result__edit-btn:hover {
+  background: rgb(48, 52, 59);
+}

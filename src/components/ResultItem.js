@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/ResultItem.css';
 
 class ResultItem extends React.Component {
   render() {

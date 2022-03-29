@@ -1,6 +1,7 @@
 import React from 'react';
 import ResultSection from './ResultSection';
 import ResultItem from './ResultItem';
+import '../styles/Result.css';
 
 class Result extends React.Component {
   render() {
@@ -20,7 +21,6 @@ class Result extends React.Component {
       <div className="c-result" onSubmit={this.props.onSubmit}>
         {/* Everything except General information is 
         rendered conditionally if section's data is provided */}
-
         {isGeneralInfoProvided && (
           <ResultSection heading="General information">
             {sections.general.map((resultItem, index) => {
@@ -49,7 +49,7 @@ class Result extends React.Component {
               return (
                 <ul
                   key={index}
-                  className="result-items-wrapper result-items-wrapper--ul"
+                  className="result-items-wrapper result-items-wrapper--ul result-items-wrapper--skills"
                 >
                   <ResultItem
                     list={true}
@@ -112,12 +112,17 @@ class Result extends React.Component {
                     itemValue={resultItem.from}
                   />
                   <ResultItem itemLabel="To:" itemValue={resultItem.to} />
-                  <button onClick={this.props.onResultEdit}>Edit</button>
                 </div>
               );
             })}
           </ResultSection>
         )}
+        <button
+          className="c-result__edit-btn"
+          onClick={this.props.onResultEdit}
+        >
+          Click to edit
+        </button>
       </div>
     );
   }
