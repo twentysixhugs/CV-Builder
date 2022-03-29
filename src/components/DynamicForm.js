@@ -1,6 +1,7 @@
 import React from 'react';
 import FormSection from './FormSection';
 import Field from './Field';
+import '../styles/DynamicForm.css';
 
 class DynamicForm extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class DynamicForm extends React.Component {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
-                  labelText="First Name: "
+                  labelText="First Name "
                   type="text"
                   id="first-name"
                   name="firstName"
@@ -26,7 +27,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Last Name: "
+                  labelText="Last Name "
                   type="text"
                   id="last-name"
                   name="lastName"
@@ -36,7 +37,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Email: "
+                  labelText="Email "
                   type="email"
                   id="email"
                   name="email"
@@ -46,7 +47,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Phone: "
+                  labelText="Phone "
                   type="text"
                   id="phone"
                   name="phone"
@@ -64,7 +65,7 @@ class DynamicForm extends React.Component {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
-                  labelText="Skill: "
+                  labelText="Skill "
                   type="text"
                   id={`skill-${index}`}
                   name={`skillInfo`}
@@ -75,6 +76,7 @@ class DynamicForm extends React.Component {
                 />
                 <button
                   type="button"
+                  className="c-fieldset__button c-fieldset__button--remove"
                   onClick={(e) =>
                     this.props.onRemoveInput(index, 'skills', e)
                   }
@@ -86,7 +88,7 @@ class DynamicForm extends React.Component {
           })}
           <button
             onClick={(e) => this.props.onNewInputCreation('skills', e)}
-            className="c-fieldset__button"
+            className="c-fieldset__button c-fieldset__button--add"
             type="button"
           >
             Add more
@@ -97,7 +99,7 @@ class DynamicForm extends React.Component {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
-                  labelText="School name: "
+                  labelText="School name "
                   type="text"
                   id={`schoolName-${index}`}
                   name={`schoolName`}
@@ -108,7 +110,7 @@ class DynamicForm extends React.Component {
                   isDisplayingForm={this.props.isDisplayingForm}
                 />
                 <Field
-                  labelText="Title of study: "
+                  labelText="Title of study "
                   type="text"
                   id={`titleOfStudy-${index}`}
                   name={`titleOfStudy`}
@@ -119,7 +121,7 @@ class DynamicForm extends React.Component {
                   isDisplayingForm={this.props.isDisplayingForm}
                 />
                 <Field
-                  labelText="From: "
+                  labelText="From "
                   type="date"
                   id={`from-${index}`}
                   name={`from`}
@@ -130,7 +132,7 @@ class DynamicForm extends React.Component {
                   isDisplayingForm={this.props.isDisplayingForm}
                 />
                 <Field
-                  labelText="To: "
+                  labelText="To "
                   type="date"
                   id={`to-${index}`}
                   name={`to`}
@@ -142,6 +144,7 @@ class DynamicForm extends React.Component {
                 />
                 <button
                   type="button"
+                  className="c-fieldset__button c-fieldset__button--remove"
                   onClick={(e) =>
                     this.props.onRemoveInput(index, 'education', e)
                   }
@@ -153,7 +156,7 @@ class DynamicForm extends React.Component {
           })}
           <button
             onClick={(e) => this.props.onNewInputCreation('education', e)}
-            className="c-fieldset__button"
+            className="c-fieldset__button c-fieldset__button--add"
             type="button"
           >
             Add more
@@ -164,7 +167,7 @@ class DynamicForm extends React.Component {
             return (
               <div key={index} className="fields-wrapper">
                 <Field
-                  labelText="Company name: "
+                  labelText="Company name "
                   type="text"
                   id={`companyName-${index}`}
                   name={`companyName`}
@@ -174,7 +177,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Position: "
+                  labelText="Position "
                   type="text"
                   id={`position-${index}`}
                   name={`position`}
@@ -184,7 +187,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="Main tasks: "
+                  labelText="Main tasks "
                   type="text"
                   id={`mainTasks-${index}`}
                   name={`mainTasks`}
@@ -195,7 +198,7 @@ class DynamicForm extends React.Component {
                   textArea={true}
                 />
                 <Field
-                  labelText="From: "
+                  labelText="From "
                   type="date"
                   id={`from-${index}`}
                   name={`from`}
@@ -205,7 +208,7 @@ class DynamicForm extends React.Component {
                   }
                 />
                 <Field
-                  labelText="To: "
+                  labelText="To "
                   type="date"
                   id={`to-${index}`}
                   name={`to`}
@@ -216,6 +219,7 @@ class DynamicForm extends React.Component {
                 />
                 <button
                   type="button"
+                  className="c-fieldset__button c-fieldset__button--remove"
                   onClick={(e) =>
                     this.props.onRemoveInput(index, 'experience', e)
                   }
@@ -227,14 +231,16 @@ class DynamicForm extends React.Component {
           })}
           <button
             onClick={(e) => this.props.onNewInputCreation('experience', e)}
-            className="c-fieldset__button"
+            className="c-fieldset__button c-fieldset__button--add"
             type="button"
           >
             Add more
           </button>
         </FormSection>
 
-        <button type="submit">Preview</button>
+        <button type="submit" className="c-form__btn c-form__btn--preview">
+          Preview
+        </button>
       </form>
     );
   }

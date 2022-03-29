@@ -1,0 +1,49 @@
+.c-fieldset {
+  width: 450px;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.c-fieldset__legend {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+}
+
+.fields-wrapper {
+  display: flex;
+  flex-flow: column;
+}
+
+.c-fieldset__button {
+  color: rgb(212, 212, 212);
+  line-height: 14px;
+  font-size: 1.1rem;
+  background: rgb(42, 46, 53);
+}
+
+.c-fieldset__button:hover {
+  background: rgb(48, 52, 59);
+}
+
+.c-fieldset__button--remove {
+  margin-top: 0.5rem;
+  width: max-content;
+  align-self: end;
+
+  background: none;
+  color: rgb(197, 74, 74);
+}
+
+.c-fieldset__button--remove:hover {
+  text-decoration: underline;
+}
+
+.c-fieldset__button--add {
+  width: max-content;
+  height: 2.5rem;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+
+  border-radius: 4px;
+}

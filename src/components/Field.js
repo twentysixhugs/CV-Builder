@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Field.css';
 
 class Field extends React.Component {
   render() {
@@ -32,8 +33,8 @@ class Field extends React.Component {
       <div className="c-field">
         <label className="c-field__label" htmlFor={this.props.id}>
           {this.props.labelText}
-          {inputToRender}
         </label>
+        {inputToRender}
       </div>
     );
   }
