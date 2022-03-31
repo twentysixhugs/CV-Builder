@@ -1,5 +1,3 @@
-import './styles/App.css';
-import React from 'react';
 import { useState } from 'react';
 import DynamicForm from './components/DynamicForm';
 import Result from './components/Result';
@@ -10,7 +8,9 @@ import {
   ExperienceFieldsetData,
 } from './modules/fieldsetCreator';
 
-function App() {
+import './styles/App.css';
+
+export default function App() {
   /* Each array represents a key-value pair stored in an object */
   /* On input change, the objects are updated (with deep cloning and setState) */
   /* On creating a new input field, it is added here. So, the form is dynamic */
@@ -173,5 +173,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

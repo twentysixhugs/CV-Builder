@@ -1,26 +1,21 @@
-import React from 'react';
 import '../styles/ResultItem.css';
 
-class ResultItem extends React.Component {
-  render() {
-    if (this.props.itemValue) {
-      if (this.props.list) {
-        return (
-          <li className="c-result-item">
-            {this.props.itemLabel} {this.props.itemValue}
-          </li>
-        );
-      }
-
+export default function ResultItem(props) {
+  if (props.itemValue) {
+    if (props.list) {
       return (
-        <p className="c-result-item">
-          {this.props.itemLabel} {this.props.itemValue}
-        </p>
+        <li className="c-result-item">
+          {props.itemLabel} {props.itemValue}
+        </li>
       );
     }
 
-    return null;
+    return (
+      <p className="c-result-item">
+        {props.itemLabel} {props.itemValue}
+      </p>
+    );
   }
-}
 
-export default ResultItem;
+  return null;
+}
