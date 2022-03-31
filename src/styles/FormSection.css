@@ -1,5 +1,5 @@
 .c-fieldset {
-  width: 450px;
+  width: 100%;
 
   display: flex;
   flex-flow: column;
@@ -13,6 +13,8 @@
 .fields-wrapper {
   display: flex;
   flex-flow: column;
+
+  width: 100%;
 }
 
 .c-fieldset__button {
