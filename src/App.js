@@ -24,7 +24,6 @@ export default function App() {
   });
 
   const [isDisplayingForm, setIsDisplayingForm] = useState(true);
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   function handleInputChange(index, e, updatedArrayName) {
     /* Create a deep copy of inputField key-value pairs */
@@ -38,7 +37,7 @@ export default function App() {
     setFieldsets({ ...fieldsets, [updatedArrayName]: deepCopy });
   }
 
-  function handleNewInputCreation(updatedArrayName, e) {
+  function handleNewInputCreation(updatedArrayName) {
     /* Create a deep copy of fieldsets key-value pairs */
     const deepCopy = _getDeepFieldsetCopy(updatedArrayName);
 
@@ -61,7 +60,7 @@ export default function App() {
     setFieldsets({ ...fieldsets, [updatedArrayName]: deepCopy });
   }
 
-  function handleRemoveInput(index, updatedArrayName, e) {
+  function handleRemoveInput(index, updatedArrayName) {
     /* Create a deep copy of fieldsets key-value pairs */
     const deepCopy = _getDeepFieldsetCopy(updatedArrayName);
 
@@ -134,7 +133,7 @@ export default function App() {
     setIsDisplayingForm(false);
   }
 
-  function handleResultEdit(e) {
+  function handleResultEdit() {
     setIsDisplayingForm(true);
   }
 
@@ -159,12 +158,17 @@ export default function App() {
       )}
       <footer className="App__footer">
         Made with love by
-        <a target="_blank" href="https://github.com/twentysixhugs">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/twentysixhugs"
+        >
           &nbsp;Iaan Lamanosau :3
         </a>
         <a
           className="footer__code-link"
           target="_blank"
+          rel="noreferrer"
           href="https://github.com/twentysixhugs/CV-Builder"
         >
           View code
