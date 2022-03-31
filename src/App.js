@@ -1,6 +1,6 @@
 import './styles/App.css';
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import DynamicForm from './components/DynamicForm';
 import Result from './components/Result';
 
@@ -15,12 +15,6 @@ function App() {
   /* On input change, the objects are updated (with deep cloning and setState) */
   /* On creating a new input field, it is added here. So, the form is dynamic */
   /* An array is passed to form as fieldsets */
-
-  // this.handleInputChange = this.handleInputChange.bind(this);
-  // this.handleNewInputCreation = this.handleNewInputCreation.bind(this);
-  // this.handleRemoveInput = this.handleRemoveInput.bind(this);
-  // this.handleSubmit = this.handleSubmit.bind(this);
-  // this.handleResultEdit = this.handleResultEdit.bind(this);
 
   const [fieldsets, setFieldsets] = useState({
     general: [{ firstName: '', lastName: '', email: '', phone: '' }],
@@ -40,12 +34,12 @@ function App() {
     deepCopy[index][e.target.name] = e.target.value;
 
     /* Replace the original array in state with the updated one */
-    // this.setState({ [updatedArrayName]: deepCopy });
+
     setFieldsets({ ...fieldsets, [updatedArrayName]: deepCopy });
   }
 
   function handleNewInputCreation(updatedArrayName, e) {
-    /* Create a deep copy of inputField key-value pairs */
+    /* Create a deep copy of fieldsets key-value pairs */
     const deepCopy = _getDeepFieldsetCopy(updatedArrayName);
 
     /* Define which fieldset to create */
@@ -68,7 +62,7 @@ function App() {
   }
 
   function handleRemoveInput(index, updatedArrayName, e) {
-    /* Create a deep copy of inputField key-value pairs */
+    /* Create a deep copy of fieldsets key-value pairs */
     const deepCopy = _getDeepFieldsetCopy(updatedArrayName);
 
     /* Remove the necessary key-value pair */
