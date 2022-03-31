@@ -1,15 +1,11 @@
 import ResultSection from './ResultSection';
 import ResultItem from './ResultItem';
+
 import '../styles/Result.css';
+import isGeneralInfoProvided from '../modules/isGeneralInfoProvided';
 
 export default function Result(props) {
   const { sections } = props;
-  const isGeneralInfoProvided =
-    sections.general[0] &&
-    (sections.general[0].firstName ||
-      sections.general[0].lastName ||
-      sections.general[0].email ||
-      sections.general[0].phone);
 
   const isSkillsInfoProvided = sections.skills.length > 0;
   const isEducationInfoProvided = sections.education.length > 0;
@@ -17,16 +13,14 @@ export default function Result(props) {
 
   return (
     <div className="c-result" onSubmit={props.onSubmit}>
-      {/* Everything except General information is 
-        rendered conditionally if section's data is provided */}
-      {isGeneralInfoProvided && (
-        <ResultSection heading="General information">
+      {isGeneralInfoProvided(sections.general) && (
+        <ResultSection heading="Personal information">
           {sections.general.map((resultItem, index) => {
             return (
               <div key={index} className="result-items-wrapper">
                 <ResultItem
                   itemLabel="Full name:"
-                  itemValue={`${resultItem.firstName} ${resultItem.lastName}`}
+                  itemValue={resultItem.firstName + resultItem.lastName}
                 />
                 <ResultItem
                   itemLabel="Email:"

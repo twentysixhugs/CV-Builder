@@ -1,5 +1,8 @@
 import FormSection from './FormSection';
 import Field from './Field';
+
+import isGeneralInfoProvided from '../modules/isGeneralInfoProvided';
+
 import '../styles/DynamicForm.css';
 
 export default function DynamicForm(props) {
@@ -218,7 +221,11 @@ export default function DynamicForm(props) {
         </button>
       </FormSection>
 
-      <button type="submit" className="c-form__btn c-form__btn--preview">
+      <button
+        type="submit"
+        disabled={!isGeneralInfoProvided(sections.general)}
+        className="c-form__btn c-form__btn--preview"
+      >
         Preview
       </button>
     </form>

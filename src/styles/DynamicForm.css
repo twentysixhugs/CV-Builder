@@ -11,12 +11,41 @@
 }
 
 .c-form__btn {
+  position: relative;
   color: #fff;
   background: rgb(42, 46, 53);
 }
 
 .c-form__btn:hover {
   background: rgb(48, 52, 59);
+}
+
+.c-form__btn:disabled {
+  background: rgb(199, 199, 199);
+}
+
+.c-form__btn:hover:disabled::after {
+  position: absolute;
+  bottom: 45px;
+  left: 20px;
+
+  width: 200px;
+  height: 70px;
+  padding: 0.5rem 1rem;
+
+  display: flex;
+  align-items: center;
+
+  content: 'Please, provide at least one item in personal information';
+  text-align: left;
+  color: black;
+
+  background: rgb(255, 255, 255);
+
+  animation: appear 1s forwards;
+  border-radius: 6px;
+
+  cursor: default;
 }
 
 .c-form__btn--preview {
@@ -33,5 +62,15 @@
 @media only screen and (max-width: 530px) {
   .c-form {
     width: 90%;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
   }
 }
